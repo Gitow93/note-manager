@@ -4,7 +4,7 @@ function App() {
   return (
     <main>
       <h1>HEADER</h1>
-      <Outlet />{" "}
+      <Outlet />
     </main>
   );
 }

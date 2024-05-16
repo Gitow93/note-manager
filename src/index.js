@@ -1,5 +1,6 @@
 import React from "react";
-import Home from "./components/Home";
+import App from "./App";
+import { Home } from "./pages/index";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -8,7 +9,13 @@ import reportWebVitals from "./reportWebVitals";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ],
   },
 ]);
 
