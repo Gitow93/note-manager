@@ -1,6 +1,6 @@
 import React from "react";
 import App from "./App";
-import { Home, Note } from "./pages/index";
+import { Home, CreateNote, Note } from "./pages/index";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -16,7 +16,11 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/note",
+        path: "/create-note",
+        element: <CreateNote />,
+      },
+      {
+        path: "note/:id",
         element: <Note />,
       },
     ],
