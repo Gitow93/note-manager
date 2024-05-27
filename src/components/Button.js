@@ -1,18 +1,28 @@
-import Proptypes from "prop-types";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import "../styles/css/components/button.css";
 
-const Button = ({ children, onClick, href }) => (
-  <Link to={href} className="button-container">
-    <button className="button" onClick={onClick}>
-      {children}
+const Button = ({ children, onClick, href }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (event) => {
+    if (onClick) {
+      onClick(event);
+    }
+    navigate(href);
+  };
+
+  return (
+    <button className="button-container" onClick={handleClick}>
+      <span className="button">{children}</span>
     </button>
-  </Link>
-);
+  );
+};
 
 Button.propTypes = {
-  onClick: Proptypes.func,
-  children: Proptypes.node.isRequired,
+  onClick: PropTypes.func,
+  children: PropTypes.node.isRequired,
+  href: PropTypes.string.isRequired,
 };
 
 export default Button;
