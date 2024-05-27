@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import "../styles/css/components/button.css";
+import "./button.css";
 
 const Button = ({ children, onClick, href }) => {
   const navigate = useNavigate();

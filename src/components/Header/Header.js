@@ -1,6 +1,6 @@
-import Button from "./Button";
-import Logo from "./Logo";
-import "../styles/css/components/header.css";
+import Button from "../Button/Button";
+import Logo from "../Logo/Logo";
+import "./header.css";
 
 const Header = () => (
   <header className="header">
