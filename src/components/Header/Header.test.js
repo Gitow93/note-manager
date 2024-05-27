@@ -4,7 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import Header from "./Header";
 import Logo from "../Logo/Logo";
 
-jest.mock("../Logo/Logo", () => () => <div>Mocked Logo</div>);
+jest.mock("../Logo/Logo", () => () => (
+  <div onClick={() => mockNavigate("/")}>Mocked Logo</div>
+));
 
 const mockNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
@@ -26,6 +28,18 @@ describe("Header component", () => {
 
     expect(screen.getByText(/mocked logo/i)).toBeInTheDocument();
     expect(screen.getByText(/new note \+/i)).toBeInTheDocument();
+  });
+
+  test('navigates to "/" when Logo is clicked', () => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    );
+    const logoElement = screen.getByText(/mocked logo/i);
+    fireEvent.click(logoElement);
+
+    expect(mockNavigate).toHaveBeenCalledWith("/");
   });
 
   test('navigates to "/create-note" when the button is clicked', () => {
