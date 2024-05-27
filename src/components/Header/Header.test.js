@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./Header";
-import Button from "../Button/Button";
 import Logo from "../Logo/Logo";
 
 jest.mock("../Logo/Logo", () => () => <div>Mocked Logo</div>);
@@ -25,11 +24,8 @@ describe("Header component", () => {
       </BrowserRouter>
     );
 
-    const logoElement = screen.getByText(/mocked logo/i);
-    const buttonElement = screen.getByText(/new note \+/i);
-
-    expect(logoElement).toBeInTheDocument();
-    expect(buttonElement).toBeInTheDocument();
+    expect(screen.getByText(/mocked logo/i)).toBeInTheDocument();
+    expect(screen.getByText(/new note \+/i)).toBeInTheDocument();
   });
 
   test('navigates to "/create-note" when the button is clicked', () => {
@@ -39,9 +35,7 @@ describe("Header component", () => {
       </BrowserRouter>
     );
 
-    const buttonElement = screen.getByText(/new note \+/i);
-    fireEvent.click(buttonElement);
-
+    fireEvent.click(screen.getByText(/new note \+/i));
     expect(mockNavigate).toHaveBeenCalledWith("/create-note");
   });
 });
