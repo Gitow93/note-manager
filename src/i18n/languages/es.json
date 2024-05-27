@@ -1,7 +1,7 @@
 {
-    "translation": {
-      "header": {
-        "create-button": "Nueva nota"
-      }
+    "header": {
+      "create-button": "Crear Nota",
+      "alt-uk-flag": "Bandera del Reino Unido",
+      "alt-spain-flag": "Bandera de España"
     }
   }

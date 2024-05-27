@@ -1,7 +1,7 @@
 {
-    "translation": {
-      "header": {
-        "create-button": "New note"
-      }
+    "header": {
+      "create-button": "Create Note",
+      "alt-uk-flag": "UK Flag",
+      "alt-spain-flag": "Spain Flag"
     }
   }
