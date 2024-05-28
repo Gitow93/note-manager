@@ -2,6 +2,8 @@
     "header": {
       "create-button": "Create Note",
       "alt-uk-flag": "UK Flag",
-      "alt-spain-flag": "Spain Flag"
+      "alt-spain-flag": "Spain Flag",
+      "Switch to English": "Switch to English"
+
     }
   }
