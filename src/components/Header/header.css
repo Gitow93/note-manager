@@ -25,6 +25,11 @@
   margin: 0;
 }
 
+.header-btn-container {
+  display: flex;
+  flex-direction: row;
+}
+
 a {
   text-decoration: none;
 }

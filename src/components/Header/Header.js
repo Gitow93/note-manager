@@ -15,8 +15,10 @@ const Header = () => {
   return (
     <header className="header">
       <Logo />
-      <Button onClick={handleClick}>{t("header.create-button")} +</Button>
-      <LanguageSelector />
+      <div className="header-btn-container">
+        <Button onClick={handleClick}>{t("header.create-button")} +</Button>
+        <LanguageSelector />
+      </div>
     </header>
   );
 };
