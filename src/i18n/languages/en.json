@@ -4,6 +4,8 @@
       "alt-uk-flag": "UK Flag",
       "alt-spain-flag": "Spain Flag",
       "Switch to English": "Switch to English"
-
+    },
+    "logo": {
+      "subtitle": "Manage your notes"
     }
   }
