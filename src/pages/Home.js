@@ -1,4 +1,4 @@
-import NotesList from "./../components/Notes/NoteList";
+import NotesList from "./../components/Notes/NotesList";
 
 const Home = () => {
   const notes = [

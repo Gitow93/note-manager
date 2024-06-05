@@ -1,5 +1,5 @@
 import NoteCard from "./NoteCard/NoteCard";
-import "./NoteList.css";
+import "./NotesList.css";
 import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 
