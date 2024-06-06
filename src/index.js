@@ -1,8 +1,10 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
 import App from "./App";
 import { Home, CreateNote, Note } from "./pages/index";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { I18nextProvider } from "react-i18next";
@@ -32,9 +34,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <I18nextProvider>
-      <RouterProvider router={router} />
-    </I18nextProvider>
+    <Provider store={store}>
+      <I18nextProvider>
+        <RouterProvider router={router} />
+      </I18nextProvider>
+    </Provider>
   </React.StrictMode>
 );
 

@@ -1,32 +1,27 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchNotes = createAsyncThunk("notes/fetchNotes", async () => {
-  const response = await axios.get("http://localhost:3200/notes");
-  return response.data;
-});
+export const fetchNotes = () => async (dispatch) => {
+  try {
+    const response = await axios.get("http://localhost:3200/notes");
+    dispatch(fetchNotesSuccess(response.data));
+  } catch (error) {
+    console.error("Failed to fetch notes:", error);
+  }
+};
 
 const notesSlice = createSlice({
   name: "notes",
   initialState: {
     notes: [],
-    status: "idle",
-    error: null,
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchNotes.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(fetchNotes.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.notes = action.payload;
-      })
-      .addCase(fetchNotes.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      });
+  reducers: {
+    fetchNotesSuccess(state, action) {
+      state.notes = action.payload;
+    },
   },
 });
+
+export const { fetchNotesSuccess } = notesSlice.actions;
 
 export default notesSlice.reducer;
