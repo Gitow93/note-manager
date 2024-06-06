@@ -7,5 +7,10 @@
     },
     "logo": {
       "subtitle": "Administra tus notas"
+    },
+    "note-card": {
+      "aria-label-delete-btn": "Borrar Nota",
+      "alt-grey-trash": "Papelera Gris",
+      "alt-red-trash": "Papelera Roja"
     }
   }
