@@ -1,31 +1,32 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchNotes } from "../redux/notesSlice";
 import NotesList from "./../components/Notes/NotesList";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const notes = useSelector((state) => state.notes.notes);
-  const notesStatus = useSelector((state) => state.notes.status);
-  const error = useSelector((state) => state.notes.error);
+  const notes = [
+    {
+      id: "1",
+      title: "Nota 1",
+      subtitle: "29/05/24",
+      content: "Esto es la nota 1",
+    },
+    {
+      id: "2",
+      title: "Nota 2",
+      subtitle: "29/05/24",
+      content: "Esto es la nota 2",
+    },
+    {
+      id: "3",
+      title: "Nota 3",
+      subtitle: "31/05/24",
+      content: "Esto es la nota 3",
+    },
+  ];
 
-  useEffect(() => {
-    if (notesStatus === "idle") {
-      dispatch(fetchNotes());
-    }
-  }, [notesStatus, dispatch]);
-
-  let content;
-
-  if (notesStatus === "loading") {
-    content = <p>Loading...</p>;
-  } else if (notesStatus === "succeeded") {
-    content = <NotesList notes={notes} />;
-  } else if (notesStatus === "failed") {
-    content = <p>{error}</p>;
-  }
-
-  return <div data-testid="home">{content}</div>;
+  return (
+    <div data-testid="home">
+      <NotesList notes={notes} />
+    </div>
+  );
 };
 
 export default Home;
