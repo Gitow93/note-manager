@@ -3,7 +3,7 @@ import trashGrey from "./../icons/trash-grey.png";
 import trashRed from "./../icons/trash-red.png";
 import "./NoteCard.css";
 
-const NoteCard = ({ id, title, subtitle, content }) => {
+const NoteCard = ({ id, title, created_at, content }) => {
   const handleClickDelete = (e) => {
     e.preventDefault();
     alert(`Delete ${id}`);
@@ -27,7 +27,7 @@ const NoteCard = ({ id, title, subtitle, content }) => {
           </button>
         </div>
         <h2 className="title">{title}</h2>
-        <p className="subtitle">{subtitle}</p>
+        <p className="created_at">{created_at}</p>
         <p className="content">{content}</p>
       </div>
     </article>
@@ -37,7 +37,7 @@ const NoteCard = ({ id, title, subtitle, content }) => {
 NoteCard.propTypes = {
   id: Proptypes.string,
   title: Proptypes.string.isRequired,
-  subtitle: Proptypes.string.isRequired,
+  created_at: Proptypes.string.isRequired,
   content: Proptypes.string.isRequired,
 };
 
