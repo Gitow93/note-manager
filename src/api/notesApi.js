@@ -1,13 +1,8 @@
 import axios from "axios";
 
-const apiClient = axios.create({
-  baseURL: "http://localhost:3200",
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
+const BASE_URL = "http://localhost:3200/notes";
 
 export const getNotes = async () => {
-  const response = await apiClient.get("/notes");
+  const response = await axios.get(`${BASE_URL}`);
   return response.data;
 };
