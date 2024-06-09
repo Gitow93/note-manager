@@ -67,7 +67,7 @@ describe("Header component", () => {
     expect(mockNavigate).toHaveBeenCalledWith("/create-note");
   });
 
-  describe("Header component interactions with LanguageSelector", () => {
+  describe("Header component interbuttons with LanguageSelector", () => {
     test("shows LanguageSelector and simulates a language change", () => {
       render(
         <BrowserRouter>

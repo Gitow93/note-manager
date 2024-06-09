@@ -7,5 +7,10 @@
     },
     "logo": {
       "subtitle": "Manage your notes"
+    },
+    "note-card": {
+      "aria-label-delete-btn": "Delete note",
+      "alt-grey-trash": "Grey Trash",
+      "alt-red-trash": "Red Trash"
     }
   }

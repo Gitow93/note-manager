@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Logo from "./Logo";
+import i18n from "../../i18n/i18n";
 
 describe("Logo component", () => {
   test("renders the logo, heading, and subtitle within a link", () => {

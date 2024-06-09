@@ -1,0 +1,68 @@
+.note-card {
+  border: 2px solid transparent;
+  border-radius: 24px;
+  box-shadow: 0px 4px 5px 0px rgba(85, 85, 85, 0.3);
+  background: white;
+  padding: 24px;
+  color: black;
+  position: relative;
+}
+
+.note-card:hover {
+  border: 2px solid #0d6efd;
+}
+
+.note-card-container {
+  position: relative;
+}
+
+.note-card .title {
+  margin-right: 52px;
+}
+
+.note-card .subtitle {
+  margin-bottom: 20px;
+}
+
+.note-card .content {
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+}
+
+.note-card .buttons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+
+.note-card:hover .buttons {
+  display: block;
+}
+
+.buttons button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.buttons .ic-trash-grey,
+.buttons .ic-trash-red {
+  width: 18px;
+}
+
+.buttons .ic-trash-red {
+  display: none;
+}
+
+.buttons:hover .ic-trash-grey {
+  display: none;
+}
+
+.buttons:hover .ic-trash-red {
+  display: block;
+}
