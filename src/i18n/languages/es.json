@@ -16,5 +16,10 @@
       "title_min_length": "El título debe tener al menos 3 caracteres",
       "title_max_length": "El título no puede exceder de 20 caracteres",
       "content_min_length": "El contenido debe tener al menos 3 caracteres"
+    },
+    "note-card": {
+      "aria-label-delete-btn": "Borrar Nota",
+      "alt-grey-trash": "Papelera Gris",
+      "alt-red-trash": "Papelera Roja"
     }
   }

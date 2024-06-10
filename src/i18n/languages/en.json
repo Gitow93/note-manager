@@ -16,5 +16,10 @@
       "title_min_length": "The title must be at least 3 characters long",
       "title_max_length": "The title can't exceed 20 characters",
       "content_min_length": "The content must be at least 3 characters long"
+    },
+    "note-card": {
+      "aria-label-delete-btn": "Delete note",
+      "alt-grey-trash": "Grey Trash",
+      "alt-red-trash": "Red Trash"
     }
   }
