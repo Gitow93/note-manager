@@ -5,6 +5,8 @@
   background: white;
   padding: 24px;
   color: black;
+  max-width: 295px;
+  max-height: 200px;
   position: relative;
 }
 
@@ -28,7 +30,6 @@
   display: -webkit-box;
   text-overflow: ellipsis;
   overflow: hidden;
-  -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
 }
 
