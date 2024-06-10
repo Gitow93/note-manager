@@ -6,8 +6,9 @@ const TitleInput = ({ title, handleTitleChange, titleError }) => {
 
   return (
     <div className="title-container">
-      <label>{t("form.title")}</label>
+      <label htmlFor="title-input">{t("form.title")}</label>
       <input
+        id="title-input"
         className="title-input"
         type="text"
         value={title}
