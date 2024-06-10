@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../components/CreateNoteForm/Form";
+import Form from "../components/Form/Form";
 import { useTranslation } from "react-i18next";
 import "./CreateNote.css";
 

@@ -25,16 +25,6 @@
       "created_at": "14/07/2023"
     },
     {
-      "id": "92a4",
-      "title": "new note",
-      "description": "esto es una nueva nota"
-    },
-    {
-      "id": "f4ac",
-      "title": "prueba 1",
-      "description": "esto es una descripcion"
-    },
-    {
       "id": "c664",
       "title": "Tittle 05",
       "content": "Content 05",
@@ -45,23 +35,6 @@
       "title": "Tittle 05",
       "content": "Content 05",
       "created_at": "14/08/2023"
-    },
-    {
-      "id": "c120",
-      "title": "fsfdfsf",
-      "content": "fsdf"
-    },
-    {
-      "id": "bedb",
-      "title": "dsdsa",
-      "content": "asdasd",
-      "created_at": "10/6/2024"
-    },
-    {
-      "id": "44bc",
-      "title": "dffsd",
-      "content": "fsdfsd",
-      "created_at": "10/6/2024"
     }
   ]
 }

@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { I18nextProvider } from "react-i18next";
 import "./i18n/i18n";
 
 const router = createBrowserRouter([
@@ -35,9 +34,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <I18nextProvider>
-        <RouterProvider router={router} />
-      </I18nextProvider>
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 );
