@@ -8,13 +8,13 @@ const NotesList = ({ notes }) => {
     <div className="notes-list">
       <div className="notes-list-container">
         <ul>
-          {notes.map(({ id, title, subtitle, content }) => (
+          {notes.map(({ id, title, created_at, content }) => (
             <li key={id}>
               <Link to={`/note/${id}`}>
                 <NoteCard
                   id={id}
                   title={title}
-                  subtitle={subtitle}
+                  created_at={created_at}
                   content={content}
                 />
               </Link>

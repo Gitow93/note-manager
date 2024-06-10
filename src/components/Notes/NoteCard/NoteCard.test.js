@@ -9,15 +9,15 @@ describe("NoteCard", () => {
   const defaultProps = {
     id: "1",
     title: "Test Title",
-    subtitle: "Test Subtitle",
+    created_at: "Test created_at",
     content: "Test content goes here.",
   };
 
-  test("renders NoteCard with title, subtitle, and content", () => {
+  test("renders NoteCard with title, created_at, and content", () => {
     render(<NoteCard {...defaultProps} />);
 
     expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
-    expect(screen.getByText(defaultProps.subtitle)).toBeInTheDocument();
+    expect(screen.getByText(defaultProps.created_at)).toBeInTheDocument();
     expect(screen.getByText(defaultProps.content)).toBeInTheDocument();
   });
 
