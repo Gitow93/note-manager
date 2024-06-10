@@ -3,8 +3,11 @@ import { useDispatch } from "react-redux";
 import { createNote } from "../../api/createNote";
 import { useTranslation } from "react-i18next";
 import "./Form.css";
+import TitleInput from "./TitleInput/TitleInput";
+import ContentTextarea from "./ContentTextarea/ContentTextarea";
+import SubmitButton from "./SubmitButton/SubmitButton";
 
-const CreateNoteForm = () => {
+const Form = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
@@ -44,31 +47,19 @@ const CreateNoteForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="title-container">
-        <label>{t("form.title")}</label>
-        <input
-          className="title-input"
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-        />
-        {titleError && <p>{titleError}</p>}
-      </div>
-      <div className="content-container">
-        <label>{t("form.content")}</label>
-        <textarea
-          className="textarea-container"
-          value={content}
-          onChange={handleContentChange}
-          rows="5"
-        />
-        {contentError && <p>{contentError}</p>}
-      </div>
-      <button type="submit" disabled={titleError || contentError}>
-        {t("form.save_note")}
-      </button>
+      <TitleInput
+        title={title}
+        handleTitleChange={handleTitleChange}
+        titleError={titleError}
+      />
+      <ContentTextarea
+        content={content}
+        handleContentChange={handleContentChange}
+        contentError={contentError}
+      />
+      <SubmitButton titleError={titleError} contentError={contentError} />
     </form>
   );
 };
 
-export default CreateNoteForm;
+export default Form;
