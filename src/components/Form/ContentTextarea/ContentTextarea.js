@@ -6,12 +6,13 @@ const ContentTextarea = ({ content, handleContentChange, contentError }) => {
 
   return (
     <div className="content-container">
-      <label>{t("form.content")}</label>
+      <label htmlFor="content-textarea">{t("form.content")}</label>
       <textarea
+        id="content-textarea"
         className="textarea-container"
         value={content}
         onChange={handleContentChange}
-        rows="5"
+        maxLength="250"
       />
       {contentError && <p className="error-message">{contentError}</p>}
     </div>
