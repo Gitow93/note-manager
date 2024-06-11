@@ -14,8 +14,9 @@
       "content": "Content",
       "save_note": "Save Note",
       "title_min_length": "The title must be at least 3 characters long",
-      "title_max_length": "The title can't exceed 20 characters",
-      "content_min_length": "The content must be at least 3 characters long"
+      "title_max_length": "The title cannot exceed 20 characters",
+      "content_min_length": "The content must be at least 3 characters long",
+      "required": "This field is required"
     },
     "note-card": {
       "aria-label-delete-btn": "Delete note",

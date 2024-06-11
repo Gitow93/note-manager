@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { createNote } from "../../api/createNote";
 import { useTranslation } from "react-i18next";
@@ -8,41 +8,84 @@ import ContentTextarea from "./ContentTextarea/ContentTextarea";
 import SubmitButton from "./SubmitButton/SubmitButton";
 
 const Form = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [titleError, setTitleError] = useState("");
   const [contentError, setContentError] = useState("");
+  const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+
+  useEffect(() => {
+    if (attemptedSubmit) {
+      if (title === "") {
+        setTitleError(t("form.required"));
+      } else if (title.length < 3) {
+        setTitleError(t("form.title_min_length"));
+      } else if (title.length > 20) {
+        setTitleError(t("form.title_max_length"));
+      } else {
+        setTitleError("");
+      }
+
+      if (content === "") {
+        setContentError(t("form.required"));
+      } else if (content.length < 3) {
+        setContentError(t("form.content_min_length"));
+      } else {
+        setContentError("");
+      }
+    }
+  }, [i18n.language, title, content, t, attemptedSubmit]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
     setTitle(value);
-    if (value.length < 3) {
-      setTitleError(t("form.title_min_length"));
-    } else if (value.length > 20) {
-      setTitleError(t("form.title_max_length"));
-    } else {
-      setTitleError("");
+    if (attemptedSubmit) {
+      if (value === "") {
+        setTitleError(t("form.required"));
+      } else if (value.length < 3) {
+        setTitleError(t("form.title_min_length"));
+      } else if (value.length > 20) {
+        setTitleError(t("form.title_max_length"));
+      } else {
+        setTitleError("");
+      }
     }
   };
 
   const handleContentChange = (e) => {
     const value = e.target.value;
     setContent(value);
-    if (value.length < 3) {
-      setContentError(t("form.content_min_length"));
-    } else {
-      setContentError("");
+    if (attemptedSubmit) {
+      if (value === "") {
+        setContentError(t("form.required"));
+      } else if (value.length < 3) {
+        setContentError(t("form.content_min_length"));
+      } else {
+        setContentError("");
+      }
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (titleError || contentError) return;
+    setAttemptedSubmit(true);
+
+    if (title === "") {
+      setTitleError(t("form.required"));
+    }
+    if (content === "") {
+      setContentError(t("form.required"));
+    }
+
+    if (titleError || contentError || title === "" || content === "") {
+      return;
+    }
     dispatch(createNote({ title, content }));
     setTitle("");
     setContent("");
+    setAttemptedSubmit(false);
   };
 
   return (

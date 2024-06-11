@@ -10,6 +10,9 @@ form {
   .title-input {
     margin: 10px 0 3px 0;
     max-width: 250px;
+    height: 20px;
+    border: 2px solid #727272;
+    border-radius: 5px;
   }
 }
 
@@ -21,6 +24,8 @@ form {
     margin: 10px 0 3px 0;
     resize: none;
     height: 100px;
+    border: 2px solid #727272;
+    border-radius: 5px;
   }
 }
 
@@ -42,4 +47,9 @@ form {
   margin-top: 10px;
   cursor: pointer;
   align-self: flex-end;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }

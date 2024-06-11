@@ -12,10 +12,11 @@
       "heading": "Nueva Nota",
       "title": "Título",
       "content": "Contenido",
-      "save_note": "Guardar nota",
+      "save_note": "Guardar Nota",
       "title_min_length": "El título debe tener al menos 3 caracteres",
       "title_max_length": "El título no puede exceder de 20 caracteres",
-      "content_min_length": "El contenido debe tener al menos 3 caracteres"
+      "content_min_length": "El contenido debe tener al menos 3 caracteres",
+      "required": "Este campo es obligatorio"
     },
     "note-card": {
       "aria-label-delete-btn": "Borrar Nota",
