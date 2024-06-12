@@ -16,75 +16,64 @@ const Form = () => {
   const [contentError, setContentError] = useState("");
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
+  const validateTitle = (value) => {
+    if (value === "") {
+      return t("form.required");
+    } else if (value.length < 3) {
+      return t("form.title_min_length");
+    } else if (value.length > 20) {
+      return t("form.title_max_length");
+    }
+    return "";
+  };
+
+  const validateContent = (value) => {
+    if (value === "") {
+      return t("form.required");
+    } else if (value.length < 3) {
+      return t("form.content_min_length");
+    }
+    return "";
+  };
+
   useEffect(() => {
     if (attemptedSubmit) {
-      if (title === "") {
-        setTitleError(t("form.required"));
-      } else if (title.length < 3) {
-        setTitleError(t("form.title_min_length"));
-      } else if (title.length > 20) {
-        setTitleError(t("form.title_max_length"));
-      } else {
-        setTitleError("");
-      }
-
-      if (content === "") {
-        setContentError(t("form.required"));
-      } else if (content.length < 3) {
-        setContentError(t("form.content_min_length"));
-      } else {
-        setContentError("");
-      }
+      setTitleError(validateTitle(title));
+      setContentError(validateContent(content));
     }
   }, [i18n.language, title, content, t, attemptedSubmit]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
     setTitle(value);
-    if (attemptedSubmit) {
-      if (value === "") {
-        setTitleError(t("form.required"));
-      } else if (value.length < 3) {
-        setTitleError(t("form.title_min_length"));
-      } else if (value.length > 20) {
-        setTitleError(t("form.title_max_length"));
-      } else {
-        setTitleError("");
-      }
-    }
+    setTitleError(validateTitle(value));
   };
 
   const handleContentChange = (e) => {
     const value = e.target.value;
     setContent(value);
-    if (attemptedSubmit) {
-      if (value === "") {
-        setContentError(t("form.required"));
-      } else if (value.length < 3) {
-        setContentError(t("form.content_min_length"));
-      } else {
-        setContentError("");
-      }
-    }
+    setContentError(validateContent(value));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
-    if (title === "") {
-      setTitleError(t("form.required"));
-    }
-    if (content === "") {
-      setContentError(t("form.required"));
-    }
+    const newTitleError = validateTitle(title);
+    const newContentError = validateContent(content);
 
-    if (titleError || contentError || title === "" || content === "") {
+    setTitleError(newTitleError);
+    setContentError(newContentError);
+
+    if (newTitleError || newContentError) {
       return;
     }
+
     dispatch(createNote({ title, content }));
     setTitle("");
     setContent("");
+    setTitleError("");
+    setContentError("");
     setAttemptedSubmit(false);
   };
 
