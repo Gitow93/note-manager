@@ -22,5 +22,12 @@
       "aria-label-delete-btn": "Borrar Nota",
       "alt-grey-trash": "Papelera Gris",
       "alt-red-trash": "Papelera Roja"
+    },
+    "note-detail": {
+      "note_detail": "Detalle de la Nota",
+      "loading": "Cargando...",
+      "note_not_found": "Nota no encontrada",
+      "edit": "Botón de Editar",
+      "delete": "Botón de Eliminar"
     }
   }
