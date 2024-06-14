@@ -16,9 +16,9 @@ const Form = () => {
   const [contentError, setContentError] = useState("");
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
-  const validateTitle = (value) => {
+  const validateTitle = (value, attemptSubmit) => {
     if (value === "") {
-      return t("form.required");
+      return attemptSubmit ? t("form.required") : "";
     } else if (value.length < 3) {
       return t("form.title_min_length");
     } else if (value.length > 20) {
@@ -27,9 +27,9 @@ const Form = () => {
     return "";
   };
 
-  const validateContent = (value) => {
+  const validateContent = (value, attemptSubmit) => {
     if (value === "") {
-      return t("form.required");
+      return attemptSubmit ? t("form.required") : "";
     } else if (value.length < 3) {
       return t("form.content_min_length");
     }
@@ -37,30 +37,28 @@ const Form = () => {
   };
 
   useEffect(() => {
-    if (attemptedSubmit) {
-      setTitleError(validateTitle(title));
-      setContentError(validateContent(content));
-    }
+    setTitleError(validateTitle(title, attemptedSubmit));
+    setContentError(validateContent(content, attemptedSubmit));
   }, [i18n.language, title, content, t, attemptedSubmit]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
     setTitle(value);
-    setTitleError(validateTitle(value));
+    setTitleError(validateTitle(value, attemptedSubmit));
   };
 
   const handleContentChange = (e) => {
     const value = e.target.value;
     setContent(value);
-    setContentError(validateContent(value));
+    setContentError(validateContent(value, attemptedSubmit));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
-    const newTitleError = validateTitle(title);
-    const newContentError = validateContent(content);
+    const newTitleError = validateTitle(title, true);
+    const newContentError = validateContent(content, true);
 
     setTitleError(newTitleError);
     setContentError(newContentError);
