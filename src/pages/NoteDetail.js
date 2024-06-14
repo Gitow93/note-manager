@@ -35,7 +35,6 @@ const NoteDetail = () => {
 
   return (
     <div className="note-detail-container">
-      <h1>{t("note-detail.note_detail")}</h1>
       <div className="note-detail">
         <div className="note-detail-header">
           <h2>{note.title}</h2>
