@@ -1,7 +1,7 @@
 import axios from "axios";
 import { addNoteSuccess } from "../redux/notesSlice";
 
-export const createNote = (note) => async (dispatch) => {
+export const CreateNoteRequest = (note) => async (dispatch) => {
   try {
     const newNote = {
       ...note,
