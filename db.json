@@ -25,16 +25,6 @@
       "created_at": "14/07/2023"
     },
     {
-      "id": "92a4",
-      "title": "new note",
-      "description": "esto es una nueva nota"
-    },
-    {
-      "id": "f4ac",
-      "title": "prueba 1",
-      "description": "esto es una descripcion"
-    },
-    {
       "id": "c664",
       "title": "Tittle 05",
       "content": "Content 05",
@@ -45,6 +35,42 @@
       "title": "Tittle 05",
       "content": "Content 05",
       "created_at": "14/08/2023"
+    },
+    {
+      "id": "2e67",
+      "title": "dasd",
+      "content": "sadas",
+      "created_at": "10/6/2024"
+    },
+    {
+      "id": "e618",
+      "title": "Prueba +250",
+      "content": "En un pequeño pueblo rodeado de montañas y bosques, vivía una comunidad que valoraba profundamente la simplicidad y la conexión con la naturaleza. Cada mañana, los habitantes se despertaban con el canto de los pájaros y el suave murmullo del río cerc",
+      "created_at": "11/6/2024"
+    },
+    {
+      "id": "bbcb",
+      "title": "Prueba ",
+      "content": "Prueba ",
+      "created_at": "12/6/2024"
+    },
+    {
+      "id": "679d",
+      "title": "fff",
+      "content": "fgff",
+      "created_at": "14/6/2024"
+    },
+    {
+      "id": "66e6",
+      "title": "prueba pruebita",
+      "content": "esto es una prueba pruebita",
+      "created_at": "14/6/2024"
+    },
+    {
+      "id": "28fe",
+      "title": "Prueba pruebota",
+      "content": "Esto es otra prueba pruebota",
+      "created_at": "14/6/2024"
     }
   ]
 }

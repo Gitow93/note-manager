@@ -1,0 +1,48 @@
+.note-detail-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.note-detail {
+  border: 2px solid transparent;
+  border-radius: 24px;
+  box-shadow: 0px 4px 5px 0px rgba(85, 85, 85, 0.3);
+  background: white;
+  padding: 24px;
+}
+
+.note-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-detail-header h2 {
+  margin: 0;
+}
+
+.note-detail-header p {
+  margin: 0;
+  color: #888;
+}
+
+.note-detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.note-detail-actions button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  .ic-pencil,
+  .ic-trash-black {
+    height: 20px;
+  }
+}

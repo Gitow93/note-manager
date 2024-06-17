@@ -5,6 +5,8 @@
   background: white;
   padding: 24px;
   color: black;
+  max-width: 295px;
+  max-height: 200px;
   position: relative;
 }
 

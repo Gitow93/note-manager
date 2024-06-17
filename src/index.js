@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { Home, CreateNote, Note } from "./pages/index";
+import { Home, CreateNote, NoteDetail } from "./pages/index";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { I18nextProvider } from "react-i18next";
 import "./i18n/i18n";
 
 const router = createBrowserRouter([
@@ -25,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: "note/:id",
-        element: <Note />,
+        element: <NoteDetail />,
       },
     ],
   },

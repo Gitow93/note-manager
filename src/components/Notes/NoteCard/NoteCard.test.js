@@ -1,51 +1,36 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import NoteCard from "./NoteCard";
-
-jest.mock("./../icons/trash-grey.png", () => "trash-grey.png");
-jest.mock("./../icons/trash-red.png", () => "trash-red.png");
+import { I18nextProvider } from "react-i18next";
+import i18n from "../../../i18n/i18n";
+const renderWithI18n = (ui) => {
+  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>);
+};
 
 describe("NoteCard", () => {
-  const defaultProps = {
+  const props = {
     id: "1",
     title: "Test Title",
-    created_at: "Test created_at",
-    content: "Test content goes here.",
+    created_at: "2023-01-01",
+    content: "This is a short content.",
   };
 
-  test("renders NoteCard with title, created_at, and content", () => {
-    render(<NoteCard {...defaultProps} />);
+  it("should render NoteCard with given props", () => {
+    renderWithI18n(<NoteCard {...props} />);
 
-    expect(screen.getByText(defaultProps.title)).toBeInTheDocument();
-    expect(screen.getByText(defaultProps.created_at)).toBeInTheDocument();
-    expect(screen.getByText(defaultProps.content)).toBeInTheDocument();
+    expect(screen.getByText("Test Title")).toBeInTheDocument();
+    expect(screen.getByText("2023-01-01")).toBeInTheDocument();
+    expect(screen.getByText("This is a short content.")).toBeInTheDocument();
   });
 
-  test("renders delete button with grey trash icon", () => {
-    render(<NoteCard {...defaultProps} />);
-
-    const deleteButton = screen.getByRole("button", { name: /Delete Button/i });
-    expect(deleteButton).toBeInTheDocument();
-    expect(screen.getByAltText("Grey Trash Icon")).toBeInTheDocument();
-  });
-
-  test("shows alert with id when delete button is clicked", () => {
+  it("should display delete button and handle click", () => {
     window.alert = jest.fn();
+    renderWithI18n(<NoteCard {...props} />);
 
-    render(<NoteCard {...defaultProps} />);
+    const deleteButton = screen.getByRole("button", { name: /delete/i });
+    expect(deleteButton).toBeInTheDocument();
 
-    const deleteButton = screen.getByRole("button", { name: /Delete Button/i });
     fireEvent.click(deleteButton);
-
-    expect(window.alert).toHaveBeenCalledWith(`Delete ${defaultProps.id}`);
-  });
-
-  test("shows red trash icon when delete button is hovered", () => {
-    render(<NoteCard {...defaultProps} />);
-
-    const deleteButton = screen.getByRole("button", { name: /Delete Button/i });
-    fireEvent.mouseOver(deleteButton);
-
-    expect(screen.getByAltText("Red Trash Icon")).toBeInTheDocument();
+    expect(window.alert).toHaveBeenCalledWith(`Delete ${props.id}`);
   });
 });

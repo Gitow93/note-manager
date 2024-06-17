@@ -9,9 +9,12 @@ const notesSlice = createSlice({
     fetchNotesSuccess(state, action) {
       state.notes = action.payload;
     },
+    addNoteSuccess(state, action) {
+      state.notes.push(action.payload);
+    },
   },
 });
 
-export const { fetchNotesSuccess } = notesSlice.actions;
+export const { fetchNotesSuccess, addNoteSuccess } = notesSlice.actions;
 
 export default notesSlice.reducer;

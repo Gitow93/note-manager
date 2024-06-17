@@ -8,9 +8,25 @@
     "logo": {
       "subtitle": "Manage your notes"
     },
+    "form": {
+      "heading": "New Note",
+      "title": "Title",
+      "content": "Content",
+      "save_note": "Save Note",
+      "title_min_length": "The title must be at least 3 characters long",
+      "title_max_length": "The title cannot exceed 20 characters",
+      "content_min_length": "The content must be at least 3 characters long",
+      "required": "This field is required"
+    },
     "note-card": {
       "aria-label-delete-btn": "Delete note",
       "alt-grey-trash": "Grey Trash",
       "alt-red-trash": "Red Trash"
+    },
+    "note-detail": {
+      "loading": "Loading...",
+      "note_not_found": "Note not found",
+      "edit": "Edit Button",
+      "delete": "Delete Button"
     }
   }
