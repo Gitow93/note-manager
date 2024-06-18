@@ -12,7 +12,8 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div data-testid="home">
+    <div>
+      <h1>Notes</h1>
       <NotesList notes={notes} />
     </div>
   );

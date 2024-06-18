@@ -71,6 +71,18 @@
       "title": "Prueba pruebota",
       "content": "Esto es otra prueba pruebota",
       "created_at": "14/6/2024"
+    },
+    {
+      "id": "eed5",
+      "title": "dfsdfsd",
+      "content": "fssdfsdfsdf",
+      "created_at": "18/6/2024"
+    },
+    {
+      "id": "c311",
+      "title": "prueba 1",
+      "content": "sfdasfsdf",
+      "created_at": "18/6/2024"
     }
   ]
 }
