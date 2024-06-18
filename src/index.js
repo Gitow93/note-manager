@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { Home, CreateNote, NoteDetail } from "./pages/index";
+import { Home, CreateNote, NoteDetail, EditNote } from "./pages/index";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
@@ -23,8 +23,12 @@ const router = createBrowserRouter([
         element: <CreateNote />,
       },
       {
-        path: "note/:id",
+        path: "/note/:id",
         element: <NoteDetail />,
+      },
+      {
+        path: "/edit-note/:id",
+        element: <EditNote />,
       },
     ],
   },
@@ -39,7 +43,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
