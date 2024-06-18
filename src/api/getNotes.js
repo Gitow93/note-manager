@@ -25,7 +25,11 @@ export const fetchNoteById = (id) => async (dispatch) => {
 
 export const createNote = (note) => async (dispatch) => {
   try {
-    const response = await axios.post("http://localhost:3200/notes", note);
+    const newNote = {
+      ...note,
+      created_at: new Date().toLocaleDateString(),
+    };
+    const response = await axios.post("http://localhost:3200/notes", newNote);
     dispatch(addNoteSuccess(response.data));
   } catch (error) {
     console.error("Failed to create note:", error);
