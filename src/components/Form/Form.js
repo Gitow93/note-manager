@@ -1,47 +1,55 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { CreateNoteRequest } from "../../api/CreateNoteRequest";
+import React, { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import "./Form.css";
 import TitleInput from "./TitleInput/TitleInput";
 import ContentTextarea from "./ContentTextarea/ContentTextarea";
 import SubmitButton from "./SubmitButton/SubmitButton";
 
-const Form = () => {
+const Form = ({ initialValues = { title: "", content: "" }, onSubmit }) => {
   const { t, i18n } = useTranslation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [title, setTitle] = useState(initialValues.title);
+  const [content, setContent] = useState(initialValues.content);
   const [titleError, setTitleError] = useState("");
   const [contentError, setContentError] = useState("");
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
-  const validateTitle = (value, attemptSubmit) => {
-    if (value === "") {
-      return attemptSubmit ? t("form.required") : "";
-    } else if (value.length < 3) {
-      return t("form.title_min_length");
-    } else if (value.length > 20) {
-      return t("form.title_max_length");
-    }
-    return "";
-  };
+  const validateTitle = useCallback(
+    (value, attemptSubmit) => {
+      if (value === "") {
+        return attemptSubmit ? t("form.required") : "";
+      } else if (value.length < 3) {
+        return t("form.title_min_length");
+      } else if (value.length > 20) {
+        return t("form.title_max_length");
+      }
+      return "";
+    },
+    [t]
+  );
 
-  const validateContent = (value, attemptSubmit) => {
-    if (value === "") {
-      return attemptSubmit ? t("form.required") : "";
-    } else if (value.length < 3) {
-      return t("form.content_min_length");
-    }
-    return "";
-  };
+  const validateContent = useCallback(
+    (value, attemptSubmit) => {
+      if (value === "") {
+        return attemptSubmit ? t("form.required") : "";
+      } else if (value.length < 3) {
+        return t("form.content_min_length");
+      }
+      return "";
+    },
+    [t]
+  );
 
   useEffect(() => {
     setTitleError(validateTitle(title, attemptedSubmit));
     setContentError(validateContent(content, attemptedSubmit));
-  }, [i18n.language, title, content, t, attemptedSubmit]);
+  }, [
+    i18n.language,
+    title,
+    content,
+    validateTitle,
+    validateContent,
+    attemptedSubmit,
+  ]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
@@ -69,18 +77,7 @@ const Form = () => {
       return;
     }
 
-    dispatch(CreateNoteRequest({ title, content }))
-      .then(() => {
-        setTitle("");
-        setContent("");
-        setTitleError("");
-        setContentError("");
-        setAttemptedSubmit(false);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.error("Failed to create note:", error);
-      });
+    onSubmit({ title, content });
   };
 
   return (
