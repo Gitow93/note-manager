@@ -1,10 +1,9 @@
 {
   "notes": [
     {
-      "title": "prueba 2",
-      "content": "prueba 2",
-      "id": "1",
-      "created_at": "18/6/2024"
+      "title": "prueba definitiva?",
+      "content": "esto será la prueba ",
+      "id": "1"
     },
     {
       "title": "sdfsdf",
@@ -18,10 +17,9 @@
       "created_at": "14/06/2023"
     },
     {
-      "id": "4",
-      "title": "Title 04 update",
-      "content": "Some updated note content",
-      "created_at": "14/07/2023"
+      "title": "Prueba 4!!",
+      "content": "Some updated note content1",
+      "id": "4"
     },
     {
       "id": "c664",
@@ -92,6 +90,12 @@
       "content": "sdfsdfsdf",
       "id": "8015",
       "created_at": "18/6/2024"
+    },
+    {
+      "id": "6967",
+      "title": "Prueba def",
+      "content": "sdasd",
+      "created_at": "20/6/2024"
     }
   ]
 }
