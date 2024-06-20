@@ -11,15 +11,12 @@ const EditNote = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const note = useSelector((state) =>
-    state.notes.notes.find((note) => note.id === parseInt(id))
-  );
+
+  const currentNote = useSelector((state) => state.notes.currentNote);
 
   useEffect(() => {
-    if (!note) {
-      dispatch(fetchNoteById(id));
-    }
-  }, [dispatch, id, note]);
+    dispatch(fetchNoteById(id));
+  }, [dispatch, id]);
 
   const handleUpdateNote = (updatedNote) => {
     dispatch(updateNote({ ...updatedNote, id }))
@@ -33,7 +30,7 @@ const EditNote = () => {
 
   return (
     <div className="form-container">
-      <Form initialValues={note} onSubmit={handleUpdateNote} />
+      <Form noteData={currentNote} onSubmit={handleUpdateNote} />
     </div>
   );
 };

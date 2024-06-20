@@ -5,7 +5,7 @@ import NotesList from "../components/Notes/NotesList";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const notes = useSelector((state) => state.notes.notes);
+  const notes = useSelector((state) => state.notes.allNotes);
 
   useEffect(() => {
     dispatch(fetchNotes());

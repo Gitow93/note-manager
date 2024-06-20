@@ -3,6 +3,7 @@ import {
   fetchNotesSuccess,
   addNoteSuccess,
   updateNoteSuccess,
+  fetchCurrentNoteSuccess,
 } from "../redux/notesSlice";
 
 export const fetchNotes = () => async (dispatch) => {
@@ -17,7 +18,7 @@ export const fetchNotes = () => async (dispatch) => {
 export const fetchNoteById = (id) => async (dispatch) => {
   try {
     const response = await axios.get(`http://localhost:3200/notes/${id}`);
-    dispatch(fetchNotesSuccess([response.data]));
+    dispatch(fetchCurrentNoteSuccess(response.data));
   } catch (error) {
     console.error("Failed to fetch note:", error);
   }

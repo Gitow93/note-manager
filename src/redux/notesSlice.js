@@ -3,27 +3,35 @@ import { createSlice } from "@reduxjs/toolkit";
 const notesSlice = createSlice({
   name: "notes",
   initialState: {
-    notes: [],
+    allNotes: [],
+    currentNote: null,
   },
   reducers: {
     fetchNotesSuccess(state, action) {
-      state.notes = action.payload;
+      state.allNotes = action.payload;
+    },
+    fetchCurrentNoteSuccess(state, action) {
+      state.currentNote = action.payload;
     },
     addNoteSuccess(state, action) {
-      state.notes.push(action.payload);
+      state.allNotes.push(action.payload);
     },
     updateNoteSuccess(state, action) {
-      const index = state.notes.findIndex(
+      const index = state.allNotes.findIndex(
         (note) => note.id === action.payload.id
       );
       if (index !== -1) {
-        state.notes[index] = action.payload;
+        state.allNotes[index] = action.payload;
       }
     },
   },
 });
 
-export const { fetchNotesSuccess, addNoteSuccess, updateNoteSuccess } =
-  notesSlice.actions;
+export const {
+  fetchNotesSuccess,
+  addNoteSuccess,
+  updateNoteSuccess,
+  fetchCurrentNoteSuccess,
+} = notesSlice.actions;
 
 export default notesSlice.reducer;

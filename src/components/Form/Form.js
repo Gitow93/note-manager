@@ -5,13 +5,24 @@ import TitleInput from "./TitleInput/TitleInput";
 import ContentTextarea from "./ContentTextarea/ContentTextarea";
 import SubmitButton from "./SubmitButton/SubmitButton";
 
-const Form = ({ initialValues = { title: "", content: "" }, onSubmit }) => {
+const Form = ({ noteData = { title: "", content: "" }, onSubmit }) => {
   const { t, i18n } = useTranslation();
-  const [title, setTitle] = useState(initialValues.title);
-  const [content, setContent] = useState(initialValues.content);
-  const [titleError, setTitleError] = useState("");
-  const [contentError, setContentError] = useState("");
+
+  const [infoToUpdate, setInfoToUpdate] = useState({
+    title: "",
+    content: "",
+  });
+
+  const [errors, setErrors] = useState({
+    title: "",
+    content: "",
+  });
+
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+
+  useEffect(() => {
+    setInfoToUpdate(noteData);
+  }, [noteData]);
 
   const validateTitle = useCallback(
     (value, attemptSubmit) => {
@@ -40,59 +51,53 @@ const Form = ({ initialValues = { title: "", content: "" }, onSubmit }) => {
   );
 
   useEffect(() => {
-    setTitleError(validateTitle(title, attemptedSubmit));
-    setContentError(validateContent(content, attemptedSubmit));
-  }, [
-    i18n.language,
-    title,
-    content,
-    validateTitle,
-    validateContent,
-    attemptedSubmit,
-  ]);
+    setErrors({
+      title: validateTitle(infoToUpdate.title, attemptedSubmit),
+      content: validateContent(infoToUpdate.content, attemptedSubmit),
+    });
+  }, [i18n.language]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
-    setTitle(value);
-    setTitleError(validateTitle(value, attemptedSubmit));
+    setInfoToUpdate({ ...infoToUpdate, title: value });
+    setErrors({ ...errors, title: validateTitle(value, attemptedSubmit) });
   };
 
   const handleContentChange = (e) => {
     const value = e.target.value;
-    setContent(value);
-    setContentError(validateContent(value, attemptedSubmit));
+    setInfoToUpdate({ ...infoToUpdate, content: value });
+    setErrors({ ...errors, content: validateContent(value, attemptedSubmit) });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
-    const newTitleError = validateTitle(title, true);
-    const newContentError = validateContent(content, true);
+    const newTitleError = validateTitle(infoToUpdate.title, true);
+    const newContentError = validateContent(infoToUpdate.content, true);
 
-    setTitleError(newTitleError);
-    setContentError(newContentError);
+    setErrors({ title: newTitleError, content: newContentError });
 
     if (newTitleError || newContentError) {
       return;
     }
 
-    onSubmit({ title, content });
+    onSubmit({ title: infoToUpdate.title, content: infoToUpdate.content });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <TitleInput
-        title={title}
+        title={infoToUpdate.title}
         handleTitleChange={handleTitleChange}
-        titleError={titleError}
+        titleError={errors.title}
       />
       <ContentTextarea
-        content={content}
+        content={infoToUpdate.content}
         handleContentChange={handleContentChange}
-        contentError={contentError}
+        contentError={errors.content}
       />
-      <SubmitButton titleError={titleError} contentError={contentError} />
+      <SubmitButton titleError={errors.title} contentError={errors.content} />
     </form>
   );
 };

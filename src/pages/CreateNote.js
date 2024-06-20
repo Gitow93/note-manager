@@ -24,10 +24,7 @@ const CreateNote = () => {
   return (
     <div className="form-container">
       <h1>{t("form.heading")}</h1>
-      <Form
-        initialValues={{ title: "", content: "" }}
-        onSubmit={handleCreateNote}
-      />
+      <Form noteData={{ title: "", content: "" }} onSubmit={handleCreateNote} />
     </div>
   );
 };
