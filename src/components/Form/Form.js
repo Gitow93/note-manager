@@ -1,101 +1,103 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { CreateNoteRequest } from "../../api/CreateNoteRequest";
+import React, { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import "./Form.css";
 import TitleInput from "./TitleInput/TitleInput";
 import ContentTextarea from "./ContentTextarea/ContentTextarea";
 import SubmitButton from "./SubmitButton/SubmitButton";
 
-const Form = () => {
+const Form = ({ noteData = { title: "", content: "" }, onSubmit }) => {
   const { t, i18n } = useTranslation();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [titleError, setTitleError] = useState("");
-  const [contentError, setContentError] = useState("");
+
+  const [infoToUpdate, setInfoToUpdate] = useState({
+    title: "",
+    content: "",
+  });
+
+  const [errors, setErrors] = useState({
+    title: "",
+    content: "",
+  });
+
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
-  const validateTitle = (value, attemptSubmit) => {
-    if (value === "") {
-      return attemptSubmit ? t("form.required") : "";
-    } else if (value.length < 3) {
-      return t("form.title_min_length");
-    } else if (value.length > 20) {
-      return t("form.title_max_length");
-    }
-    return "";
-  };
+  useEffect(() => {
+    setInfoToUpdate(noteData);
+  }, [noteData]);
 
-  const validateContent = (value, attemptSubmit) => {
-    if (value === "") {
-      return attemptSubmit ? t("form.required") : "";
-    } else if (value.length < 3) {
-      return t("form.content_min_length");
-    }
-    return "";
-  };
+  const validateTitle = useCallback(
+    (value, attemptSubmit) => {
+      if (value === "") {
+        return attemptSubmit ? t("form.required") : "";
+      } else if (value.length < 3) {
+        return t("form.title_min_length");
+      } else if (value.length > 20) {
+        return t("form.title_max_length");
+      }
+      return "";
+    },
+    [t]
+  );
+
+  const validateContent = useCallback(
+    (value, attemptSubmit) => {
+      if (value === "") {
+        return attemptSubmit ? t("form.required") : "";
+      } else if (value.length < 3) {
+        return t("form.content_min_length");
+      }
+      return "";
+    },
+    [t]
+  );
 
   useEffect(() => {
-    setTitleError(validateTitle(title, attemptedSubmit));
-    setContentError(validateContent(content, attemptedSubmit));
-  }, [i18n.language, title, content, t, attemptedSubmit]);
+    setErrors({
+      title: validateTitle(infoToUpdate.title, attemptedSubmit),
+      content: validateContent(infoToUpdate.content, attemptedSubmit),
+    });
+  }, [i18n.language]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
-    setTitle(value);
-    setTitleError(validateTitle(value, attemptedSubmit));
+    setInfoToUpdate({ ...infoToUpdate, title: value });
+    setErrors({ ...errors, title: validateTitle(value, attemptedSubmit) });
   };
 
   const handleContentChange = (e) => {
     const value = e.target.value;
-    setContent(value);
-    setContentError(validateContent(value, attemptedSubmit));
+    setInfoToUpdate({ ...infoToUpdate, content: value });
+    setErrors({ ...errors, content: validateContent(value, attemptedSubmit) });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setAttemptedSubmit(true);
 
-    const newTitleError = validateTitle(title, true);
-    const newContentError = validateContent(content, true);
+    const newTitleError = validateTitle(infoToUpdate.title, true);
+    const newContentError = validateContent(infoToUpdate.content, true);
 
-    setTitleError(newTitleError);
-    setContentError(newContentError);
+    setErrors({ title: newTitleError, content: newContentError });
 
     if (newTitleError || newContentError) {
       return;
     }
 
-    dispatch(CreateNoteRequest({ title, content }))
-      .then(() => {
-        setTitle("");
-        setContent("");
-        setTitleError("");
-        setContentError("");
-        setAttemptedSubmit(false);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.error("Failed to create note:", error);
-      });
+    onSubmit({ title: infoToUpdate.title, content: infoToUpdate.content });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <TitleInput
-        title={title}
+        title={infoToUpdate.title}
         handleTitleChange={handleTitleChange}
-        titleError={titleError}
+        titleError={errors.title}
       />
       <ContentTextarea
-        content={content}
+        content={infoToUpdate.content}
         handleContentChange={handleContentChange}
-        contentError={contentError}
+        contentError={errors.content}
       />
-      <SubmitButton titleError={titleError} contentError={contentError} />
+      <SubmitButton titleError={errors.title} contentError={errors.content} />
     </form>
   );
 };

@@ -10,6 +10,7 @@
     },
     "form": {
       "heading": "Nueva Nota",
+      "edit-heading" :"Editar Nota",
       "title": "Título",
       "content": "Contenido",
       "save_note": "Guardar Nota",
