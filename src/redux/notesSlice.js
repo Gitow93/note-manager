@@ -4,7 +4,6 @@ const notesSlice = createSlice({
   name: "notes",
   initialState: {
     allNotes: [],
-    currentNote: null,
   },
   reducers: {
     fetchNotesSuccess(state, action) {
