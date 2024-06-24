@@ -5,6 +5,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { fetchNoteById, updateNote } from "../api/getNotes";
 import { useTranslation } from "react-i18next";
 import "./EditNote.css";
+import DeleteButton from "../components/DeleteButton/DeleteButton";
+import trashBlack from "./icons/trash-black.png";
 
 const EditNote = () => {
   const { t } = useTranslation();
@@ -31,6 +33,12 @@ const EditNote = () => {
   return (
     <div className="form-container">
       <Form noteData={currentNote} onSubmit={handleUpdateNote} />
+      <DeleteButton
+        noteId={id}
+        imgSrc={trashBlack}
+        imgAlt={t("note-detail.delete")}
+        className="delete-button"
+      />
     </div>
   );
 };
