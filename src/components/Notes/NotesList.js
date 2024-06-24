@@ -3,10 +3,18 @@ import NoteCard from "./NoteCard/NoteCard";
 import "./NotesList.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const NotesList = ({ notes }) => {
+  const { t } = useTranslation("translation");
+
   if (!Array.isArray(notes) || notes.length === 0) {
-    return <div>No notes available</div>;
+    return (
+      <div className="noteslist-empty">
+        {t(`note-list.empty`)}
+        <Link to="/create-note">{t(`note-list.link`)}</Link>
+      </div>
+    );
   }
 
   return (

@@ -11,3 +11,10 @@ li {
   flex: 1 1 calc(16.666% - 16px);
   max-width: calc(16.666% - 16px);
 }
+
+.noteslist-empty {
+  a {
+    color: #0d6efd;
+    font-weight: bold;
+  }
+}

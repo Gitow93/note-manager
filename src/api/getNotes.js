@@ -39,9 +39,13 @@ export const createNote = (note) => async (dispatch) => {
 
 export const updateNote = (note) => async (dispatch) => {
   try {
+    const newNote = {
+      ...note,
+      created_at: new Date().toLocaleDateString(),
+    };
     const response = await axios.put(
       `http://localhost:3200/notes/${note.id}`,
-      note
+      newNote
     );
     dispatch(updateNoteSuccess(response.data));
   } catch (error) {

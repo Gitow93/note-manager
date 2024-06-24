@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import "./NoteDetail.css";
 import trashBlack from "./icons/trash-black.png";
 import pencil from "./icons/pencil.png";
+import DeleteButton from "../components/DeleteButton/DeleteButton";
 
 const NoteDetail = () => {
   const { t } = useTranslation();
@@ -49,14 +50,12 @@ const NoteDetail = () => {
               alt={t("note-detail.edit")}
             />
           </button>
-          <button>
-            {" "}
-            <img
-              className="ic-trash-black"
-              src={trashBlack}
-              alt={t("note-detail.delete")}
-            />
-          </button>
+          <DeleteButton
+            noteId={id}
+            imgSrc={trashBlack}
+            imgAlt={t("note-detail.delete")}
+            className="ic-trash-black"
+          />
         </div>
       </div>
     </div>

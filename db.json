@@ -1,101 +1,10 @@
 {
   "notes": [
     {
-      "title": "prueba definitiva?",
-      "content": "esto será la prueba ",
-      "id": "1"
-    },
-    {
-      "title": "sdfsdf",
-      "content": "prueba",
-      "id": "2"
-    },
-    {
-      "id": "3",
-      "title": "Tittle 03",
-      "content": " Content 03",
-      "created_at": "14/06/2023"
-    },
-    {
-      "title": "Prueba 4!!",
-      "content": "Some updated note content1",
-      "id": "4"
-    },
-    {
-      "id": "c664",
-      "title": "Tittle 05",
-      "content": "Content 05",
-      "created_at": "14/08/2023"
-    },
-    {
-      "id": "b8da",
-      "title": "Tittle 05",
-      "content": "Content 05",
-      "created_at": "14/08/2023"
-    },
-    {
-      "id": "2e67",
-      "title": "dasd",
-      "content": "sadas",
-      "created_at": "10/6/2024"
-    },
-    {
-      "id": "e618",
-      "title": "Prueba +250",
-      "content": "En un pequeño pueblo rodeado de montañas y bosques, vivía una comunidad que valoraba profundamente la simplicidad y la conexión con la naturaleza. Cada mañana, los habitantes se despertaban con el canto de los pájaros y el suave murmullo del río cerc",
-      "created_at": "11/6/2024"
-    },
-    {
-      "id": "bbcb",
-      "title": "Prueba ",
-      "content": "Prueba ",
-      "created_at": "12/6/2024"
-    },
-    {
-      "title": "dff",
-      "content": "dfsdf",
-      "id": "679d",
-      "created_at": "14/6/2024"
-    },
-    {
-      "id": "66e6",
-      "title": "prueba pruebita",
-      "content": "esto es una prueba pruebita",
-      "created_at": "14/6/2024"
-    },
-    {
-      "title": "Esto es una pruebita",
-      "content": "Prueba pruebita",
-      "id": "28fe"
-    },
-    {
-      "id": "eed5",
-      "title": "dfsdfsd",
-      "content": "fssdfsdfsdf",
-      "created_at": "18/6/2024"
-    },
-    {
-      "title": "sfsdfsd",
-      "content": "fsdfsdfsdfsdf",
-      "id": "c311"
-    },
-    {
-      "title": "dsdsf",
-      "content": "sdfsdfsdf",
-      "id": "8240",
-      "created_at": "18/6/2024"
-    },
-    {
-      "title": "sdfsdf",
-      "content": "sdfsdfsdf",
-      "id": "8015",
-      "created_at": "18/6/2024"
-    },
-    {
-      "id": "6967",
-      "title": "Prueba def",
-      "content": "sdasd",
-      "created_at": "20/6/2024"
+      "title": "COMPRA",
+      "content": "Pan,\nLeche,\nHuevos,\nFrutas (manzanas, plátanos),\nVerduras (lechuga, tomates),\nArroz,\nPollo,\nQueso,\nYogur,\nCafé.",
+      "id": "57c6",
+      "created_at": "24/6/2024"
     }
   ]
 }
