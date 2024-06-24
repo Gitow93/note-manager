@@ -10,3 +10,16 @@
     margin: 10px 0;
   }
 }
+
+.delete-button {
+  position: relative;
+  bottom: 32px;
+  left: 88%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  img {
+    height: 30px;
+  }
+}

@@ -40,9 +40,13 @@
   padding: 10px 15px;
   border-radius: 4px;
   cursor: pointer;
+  .ic-pencil {
+    height: 25px;
+  }
+}
 
-  .ic-pencil,
-  .ic-trash-black {
-    height: 20px;
+button.ic-trash-black {
+  img {
+    height: 30px;
   }
 }
