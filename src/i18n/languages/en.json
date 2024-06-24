@@ -1,4 +1,7 @@
 {
+    "home": {
+      "title": "Notes"
+    },
     "header": {
       "create-button": "Create Note",
       "alt-uk-flag": "UK Flag",
@@ -18,6 +21,10 @@
       "title_max_length": "The title cannot exceed 20 characters",
       "content_min_length": "The content must be at least 3 characters long",
       "required": "This field is required"
+    },
+    "note-list": {
+      "empty": "No notes available. ",
+      "link": "Do you want to create one?"
     },
     "note-card": {
       "aria-label-delete-btn": "Delete note",

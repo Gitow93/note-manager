@@ -1,4 +1,7 @@
 {
+  "home": {
+    "title": "Notas"
+  },
     "header": {
       "create-button": "Crear Nota",
       "alt-uk-flag": "Bandera del Reino Unido",
@@ -18,6 +21,10 @@
       "title_max_length": "El título no puede exceder de 20 caracteres",
       "content_min_length": "El contenido debe tener al menos 3 caracteres",
       "required": "Este campo es obligatorio"
+    },
+    "note-list": {
+      "empty": "No se encuentra ninguna nota. ",
+      "link": "¿Te gustaría crear una nueva?"
     },
     "note-card": {
       "aria-label-delete-btn": "Borrar Nota",
