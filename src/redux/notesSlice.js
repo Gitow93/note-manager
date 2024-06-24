@@ -4,6 +4,7 @@ const notesSlice = createSlice({
   name: "notes",
   initialState: {
     allNotes: [],
+    error: null,
   },
   reducers: {
     fetchNotesSuccess(state, action) {
@@ -23,6 +24,11 @@ const notesSlice = createSlice({
         state.allNotes[index] = action.payload;
       }
     },
+    deleteNoteSuccess(state, action) {
+      state.allNotes = state.allNotes.filter(
+        (note) => note.id !== action.payload
+      );
+    },
   },
 });
 
@@ -31,6 +37,7 @@ export const {
   addNoteSuccess,
   updateNoteSuccess,
   fetchCurrentNoteSuccess,
+  deleteNoteSuccess,
 } = notesSlice.actions;
 
 export default notesSlice.reducer;
