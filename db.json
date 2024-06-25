@@ -5,6 +5,18 @@
       "content": "Pan,\nLeche,\nHuevos,\nFrutas (manzanas, plátanos),\nVerduras (lechuga, tomates),\nArroz,\nPollo,\nQueso,\nYogur,\nCafé.",
       "id": "57c6",
       "created_at": "24/6/2024"
+    },
+    {
+      "id": "3346",
+      "title": "prueba",
+      "content": "dfgdfgd",
+      "created_at": "24/6/2024"
+    },
+    {
+      "id": "4486",
+      "title": "Prueba",
+      "content": "Prueba",
+      "created_at": "25/6/2024"
     }
   ]
 }
