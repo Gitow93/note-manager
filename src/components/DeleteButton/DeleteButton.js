@@ -5,7 +5,7 @@ import { deleteNoteRequest } from "../../api/DeleteNoteRequest";
 import { useNavigate } from "react-router-dom";
 import { deleteNoteSuccess } from "../../redux/notesSlice";
 
-const DeleteButton = ({ noteId, imgSrc, imgAlt, className, classNameimg }) => {
+const DeleteButton = ({ noteId, imgSrc, imgAlt, className }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ const DeleteButton = ({ noteId, imgSrc, imgAlt, className, classNameimg }) => {
   return (
     // EL CLASSNAME TIENES QUE PONERSELO A LA IMAGEN, NO AL BUTTON
     <button className={className} onClick={handleDelete}>
-      <img src={imgSrc} alt={imgAlt} className={classNameimg}/>
+      <img src={imgSrc} alt={imgAlt} />
     </button>
   );
 };
