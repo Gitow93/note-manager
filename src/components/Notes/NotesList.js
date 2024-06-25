@@ -5,7 +5,7 @@ import "./NotesList.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { fetchNotes } from "../../api/getNotes"; // Importamos la acción asíncrona
+import { fetchNotes } from "../../api/getNotes";
 import SearchBar from "./../SearchBar/SearchBar";
 
 const NotesList = () => {
@@ -15,7 +15,7 @@ const NotesList = () => {
   const [filteredNotes, setFilteredNotes] = useState(notes);
 
   useEffect(() => {
-    dispatch(fetchNotes()); // Hacemos la llamada para obtener las notas
+    dispatch(fetchNotes());
   }, [dispatch]);
 
   useEffect(() => {

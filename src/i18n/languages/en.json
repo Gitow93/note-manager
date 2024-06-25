@@ -8,6 +8,9 @@
     "logo": {
       "subtitle": "Manage your notes"
     },
+    "search-bar": {
+      "text": "Search notes..."
+    },
     "form": {
       "heading": "New Note",
       "edit-heading" :"Edit Note",

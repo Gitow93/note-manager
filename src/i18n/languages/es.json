@@ -8,6 +8,9 @@
     "logo": {
       "subtitle": "Administra tus notas"
     },
+    "search-bar": {
+      "text": "Buscar notas..."
+    },
     "form": {
       "heading": "Nueva Nota",
       "edit-heading" :"Editar Nota",

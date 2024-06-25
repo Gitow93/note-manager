@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./SearchBar.css";
+import searchIcon from "./ic-search-bar.png";
+import { useTranslation } from "react-i18next";
 
 const SearchBar = ({ onSearch }) => {
+  const { t } = useTranslation("translation");
+
   const [query, setQuery] = useState("");
 
   const handleInputChange = (e) => {
@@ -11,13 +15,16 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Buscar notas..."
-      value={query}
-      onChange={handleInputChange}
-      className="search-bar"
-    />
+    <div className="search-bar-wrapper">
+      <img src={searchIcon} alt="Search Icon" className="search-bar-icon" />
+      <input
+        type="text"
+        placeholder={t(`search-bar.text`)}
+        value={query}
+        onChange={handleInputChange}
+        className="search-bar"
+      />
+    </div>
   );
 };
 
