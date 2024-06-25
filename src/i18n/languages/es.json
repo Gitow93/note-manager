@@ -1,7 +1,4 @@
 {
-  "home": {
-    "title": "Notas"
-  },
     "header": {
       "create-button": "Crear Nota",
       "alt-uk-flag": "Bandera del Reino Unido",
@@ -24,7 +21,8 @@
     },
     "note-list": {
       "empty": "No se encuentra ninguna nota. ",
-      "link": "¿Te gustaría crear una nueva?"
+      "link": "¿Te gustaría crear una nueva?",
+      "no-notes-found": "No se ha encontrado ninguna nota"
     },
     "note-card": {
       "aria-label-delete-btn": "Borrar Nota",
