@@ -3,19 +3,24 @@ import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { deleteNoteRequest } from "../../api/DeleteNoteRequest";
 import { useNavigate } from "react-router-dom";
+import { deleteNoteSuccess } from "../../redux/notesSlice";
 
 const DeleteButton = ({ noteId, imgSrc, imgAlt, className }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleDelete = async () => {
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
     if (window.confirm("¿Estás seguro de que deseas eliminar esta nota?")) {
-      await dispatch(deleteNoteRequest(noteId));
+      await deleteNoteRequest(noteId)
+      dispatch(deleteNoteSuccess(noteId));
       navigate("/");
     }
   };
 
   return (
+    // EL CLASSNAME TIENES QUE PONERSELO A LA IMAGEN, NO AL BUTTON
     <button className={className} onClick={handleDelete}>
       <img src={imgSrc} alt={imgAlt} />
     </button>

@@ -16,13 +16,13 @@ const NoteCard = ({ id, title, created_at, content }) => {
     <article className="note-card">
       <div className="note-card-container">
         <div className="buttons">
+          {/* // AL SUPERPONER LOS DOS BOTONES HAY QUE PONER preventDefault EN AMBOS */}
           <button
             aria-label={t("note-card.aria-label-delete-btn")}
-            className="button-delete"
+            className="ic-trash-grey"
             onClick={handleClickDelete}
           >
-            <img
-              className="ic-trash-grey"
+            <img              
               src={trashGrey}
               alt={t("note-card.alt-grey-trash")}
             />

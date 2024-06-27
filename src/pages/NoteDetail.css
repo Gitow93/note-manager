@@ -45,8 +45,6 @@
   }
 }
 
-button.ic-trash-black {
-  img {
+.ic-trash-black  img{
     height: 30px;
-  }
 }

@@ -5,21 +5,17 @@
   border-radius: 24px;
   box-shadow: 0px 4px 5px 0px rgba(85, 85, 85, 0.3);
   background: white;
-
+/* // RECUERDA QUE ESTO NO ES SASS NO SE PUEDEN ANIDAR LAS CLASES */
   h1 {
     margin: 10px 0;
   }
 }
 
 .delete-button {
-  position: relative;
-  bottom: 32px;
-  left: 88%;
+  all:unset;
   cursor: pointer;
-  background-color: transparent;
-  border: none;
+}
 
-  img {
+.delete-button img {
     height: 30px;
-  }
 }
