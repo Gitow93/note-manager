@@ -1,0 +1,28 @@
+.search-bar-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.search-bar {
+  width: 100%;
+  font-size: 20px;
+  padding: 20px 20px 20px 80px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #0d6efd;
+}
+
+.search-bar-icon {
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+}

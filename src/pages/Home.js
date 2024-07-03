@@ -16,7 +16,6 @@ const Home = () => {
 
   return (
     <div className="home-layout">
-      <h1>{t("home.title")}</h1>
       <NotesList notes={notes} />
     </div>
   );

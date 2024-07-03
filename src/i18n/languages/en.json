@@ -1,7 +1,4 @@
 {
-    "home": {
-      "title": "Notes"
-    },
     "header": {
       "create-button": "Create Note",
       "alt-uk-flag": "UK Flag",
@@ -10,6 +7,9 @@
     },
     "logo": {
       "subtitle": "Manage your notes"
+    },
+    "search-bar": {
+      "text": "Search notes..."
     },
     "form": {
       "heading": "New Note",
@@ -24,7 +24,8 @@
     },
     "note-list": {
       "empty": "No notes available. ",
-      "link": "Do you want to create one?"
+      "link": "Do you want to create one?",
+      "no-notes-found": "No notes found"
     },
     "note-card": {
       "aria-label-delete-btn": "Delete note",
